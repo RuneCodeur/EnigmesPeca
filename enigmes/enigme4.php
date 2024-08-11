@@ -17,7 +17,7 @@ if( isset($_POST['reponse']) && $_POST['reponse'] !=''  &&  $_SESSION['comptageB
     $_SESSION['comptageB'] = $_SESSION['comptageB'] -1 ;                                    // décompte de 1 la valeur 'comptageB' du joueur
 }
 
-if(isset($_SESSION['responseB'])){                                                                                                          // si une réponse se trouve dans la session du joueur
+if(isset($_SESSION['responseB']) && $_SESSION['responseB'] != ''){                                                                          // si une réponse valide se trouve dans la session du joueur
     if($_SESSION['responseB'] == "Dragon Ball" || $_SESSION['responseB'] == "dragon ball" || $_SESSION['responseB'] == "Dragon ball" ){     // si la réponse est correcte... 
         $resultat = 'gagné ! tu as droit à un indice : nuage magique';                                                                      // affiche le message de reussite
         $classResultat = 'resultat-green';                                                                                                  // affiche la réponse en vert
@@ -37,6 +37,7 @@ if(isset($_SESSION['responseB'])){                                              
 ?>
 
 <h1>enigme 4</h1>
+<p class="signature">par Henry JEAN-FURET</p>
 
 <p class="texte_alerte">ATTENTION : vous avez droit à <?=$_SESSION['comptageB']?> tentatives.</p>
 

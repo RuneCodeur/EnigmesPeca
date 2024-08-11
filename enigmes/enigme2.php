@@ -18,6 +18,7 @@ if(isset($_POST['reponse']) && $_POST['reponse'] !=''){                         
 ?>
 
 <h1>enigme 2</h1>
+<p class="signature">par Henry JEAN-FURET</p>
 
 <img src="./enigmes/documents/defaut.jpg">
 

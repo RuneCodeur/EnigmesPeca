@@ -27,6 +27,7 @@
     margin: 5px;
     padding: 5px;
 }
+
 .bout_stylé:focus{
     background-color:lightgrey;
 }
@@ -84,4 +85,10 @@
             margin-right: 5px;
         }
     }
+}
+
+.signature{
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 15px ;
 }

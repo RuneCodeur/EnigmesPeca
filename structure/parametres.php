@@ -10,7 +10,6 @@ if(isset($_GET['action'])){
 }
 
 if($action == '1'){
-    session_start();
     session_destroy();
     $message = 'session vidé !';
 }

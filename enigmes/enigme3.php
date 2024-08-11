@@ -24,6 +24,7 @@ if(isset($_SESSION['responseA'])){                                              
 ?>
 
 <h1>enigme 3</h1>
+<p class="signature">par Henry JEAN-FURET</p>
 
 <p class="texte_alerte">ATTENTION : vous avez droit qu'a 1 seule tentative.</p>
 
