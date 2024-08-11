@@ -1,0 +1,46 @@
+.list-accueil{
+    border-left: 2px blue solid;
+    width: 100%;
+    li{
+        margin:5px;
+        display: flex;
+        align-items: center;
+        .link{
+            margin: 0 10px;
+            text-decoration: none;
+            color: blue;
+            width: calc(100% - 120px);
+            border-bottom: 1px blue solid;
+        }
+        .link:hover{
+            color:blueviolet;
+            border-bottom: 1px blueviolet solid;
+        }
+        .code{
+            border: 2px black solid;
+            padding: 5px 10px;
+            width: 90px;
+            border-radius: 5px;
+            transition-duration: 0.1s;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            background-color: white;
+        }
+        .code:hover{
+            transform: scale(1.1);
+        }
+        .code:active{
+            transform: scale(0.9);
+        }
+    }
+}
+
+.page-accueil {
+    width: 100%;
+    p{
+        width: 100%;
+        text-align: center;
+    }
+
+}
