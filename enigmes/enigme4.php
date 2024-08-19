@@ -18,7 +18,7 @@ if( isset($_POST['reponse']) && $_POST['reponse'] !=''  &&  $_SESSION['comptageB
 }
 
 if(isset($_SESSION['responseB']) && $_SESSION['responseB'] != ''){                                                                          // si une réponse valide se trouve dans la session du joueur
-    if($_SESSION['responseB'] == "Dragon Ball" || $_SESSION['responseB'] == "dragon ball" || $_SESSION['responseB'] == "Dragon ball" ){     // si la réponse est correcte... 
+    if(strtolower($_SESSION['responseB']) == "dragon ball" ){     // si la réponse est correcte... 
         $resultat = 'gagné ! tu as droit à un indice : nuage magique';                                                                      // affiche le message de reussite
         $classResultat = 'resultat-green';                                                                                                  // affiche la réponse en vert
         $_SESSION['comptageB'] = 0;                                                                                                         // réduit le comptage à 0

@@ -1,5 +1,23 @@
 <?php
-ini_set('session.gc_maxlifetime', 60*60*3);
+/*
+PROCESS
+faire un scenario
+faire au moins 5 enigmes pour chaque themes. 
+
+vie sous-marine     ok
+meteo               5
+technologie         5
+physique            5
+les éléments        5
+l'eau               5
+
+bonus - chaque enigme fournis un indice pour répondre à la question suprème
+si l'enigme est déja repondu, on peu pas repondre à nouveau
+
+*/
+
+
+ini_set('session.gc_maxlifetime', 60*60*5);
 session_start();
 ob_start();
 require_once('./model/functions.php');

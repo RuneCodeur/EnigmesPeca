@@ -11,7 +11,7 @@ if(isset($_POST['reponse']) && $_POST['reponse'] !='' && !isset($_SESSION['respo
 
 if(isset($_SESSION['responseA'])){                                                          // si il y a la valeur "reponse" dans la session du joueur...
     $afficheFormulaire = false;                                                             // masque le formulaire
-    if($_SESSION['responseA'] == "blanc" || $_SESSION['responseA'] == "Blanc" ){            // si la reponse est correcte
+    if(strtolower($_SESSION['responseA']) == "blanc" ){            // si la reponse est correcte
         $resultat = 'gagné ! tu as droit à un indice : Cornemuse';                          // affiche le message de reussite
         $classResultat = 'resultat-green';                                                  // affiche la réponse en vert
     }

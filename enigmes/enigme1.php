@@ -5,7 +5,7 @@ $classResultat = 'resultat-red';    // par defaut, affiche le message en rouge
 
 //logique
 if(isset($_POST['reponse']) && $_POST['reponse'] !=''){                         // si il y a la valeur "reponse" dans le renvois
-    if ($_POST['reponse'] == "un marron"){                                      // si la réponse est correcte...
+    if (strtolower($_POST['reponse']) == "un marron"){                          // si la réponse est correcte...
         $resultat = "gagné ! vous avez gagné l'indice suivant : cuillère";      // affiche le message de reussite
         $classResultat = 'resultat-green';                                      // affiche la réponse en vert
     }

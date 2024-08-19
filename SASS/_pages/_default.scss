@@ -21,6 +21,9 @@
     margin: 10px;
     padding: 10px;
     border: 1px black solid;
+    label{
+        text-align: center;
+    }
 }
 
 .bout_stylé{
@@ -74,15 +77,33 @@
     padding: 10px;
     padding-left: 20px;
     width: auto;
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
     li{
         width: 100%;
         border-bottom: 1px black solid;
         display: flex;
+        align-items: center;
+        justify-content: center;
         margin: 10px 0;
+
+        b{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            form{
+                margin: 0;
+            }
+        }
 
         p{
             width: 100%;
             margin-right: 5px;
+        }
+        form {
+            margin: 0 15px;
         }
     }
 }
@@ -91,4 +112,16 @@
     font-style: italic;
     font-size: 0.9rem;
     margin-bottom: 15px ;
+}
+
+.ball{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    border-radius: 50%;
+    font-weight: bolder;
+    background-color: khaki;
 }

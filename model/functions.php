@@ -22,3 +22,25 @@ function lienEnigme($nom = ""){
     }
     return $lien;
 }
+
+function testTeam(){
+    
+    if(isset($_SESSION['admin-pseudo']) && isset($_SESSION['admin-password'])){
+        $_SESSION['admin-pseudo'] = null;
+        $_SESSION['admin-password']= null;
+    }
+
+    if(!isset($_SESSION['equipe'])){
+        header('Location: '.lienEnigme("GJ-intro"));
+        die;
+    }
+    
+    $fichierTeam = './enigmes/documents/team.json'; 
+    $json = file_get_contents($fichierTeam);
+    $equipes = json_decode($json, true);
+    if (!array_key_exists($_SESSION['equipe'], $equipes)) {
+        session_destroy();
+        header('Location: '.lienEnigme("GJ-intro"));
+        die;
+    }
+}
