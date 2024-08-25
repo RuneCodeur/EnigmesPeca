@@ -1,18 +1,14 @@
 <?php
 /*
 PROCESS
-faire un scenario
-faire au moins 5 enigmes pour chaque themes. 
 
-vie sous-marine     ok
-meteo               5
-technologie         5
-physique            5
-les éléments        5
-l'eau               5
+meteo               ok
+geologie            ok
+chimie              ok
+le feu              3
+physique            3
 
-bonus - chaque enigme fournis un indice pour répondre à la question suprème
-si l'enigme est déja repondu, on peu pas repondre à nouveau
+planetes            10
 
 */
 

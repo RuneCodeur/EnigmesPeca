@@ -36,12 +36,14 @@
 }
 
 .bout_action_stylé{
+    width: auto;
     margin: 5px;
     padding: 5px;
     font-weight: bolder;
     font-size: 1.1rem;
     transition-duration: 0.1s;
     border-radius: 5px;
+    color: black;
     background-color:khaki;
 }
 
@@ -87,6 +89,7 @@
         align-items: center;
         justify-content: center;
         margin: 10px 0;
+        padding:5px 0;
 
         b{
             display: flex;
@@ -108,6 +111,66 @@
     }
 }
 
+.liste-colonne{
+    border: 1px black solid;
+    padding: 10px;
+    padding-left: 20px;
+    width: auto;
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
+    li{
+        width: 100%;
+        border-bottom: 1px black solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+        p{
+            width: 100%;
+            text-align: center;
+            margin: 5px 0;
+        }
+    }
+}
+
+.liste-style-1{
+    border: 3px red solid;  
+    border: 1px black solid;
+    padding: 10px;
+    padding-left: 20px;
+    width: auto;
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
+    li{
+        width: 100%;
+        border-bottom: 1px black solid;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 10px 0;
+        padding:5px 0;
+
+        p{
+            width: auto;
+            margin-right: 5px;
+            white-space: nowrap;
+        }
+        form {
+            margin: 0 5px;
+            textarea{
+                resize: vertical;
+                max-width: 100%;
+                min-width: 100%;
+                min-height: 50px;
+                padding: 5px;
+            }
+        }
+    } 
+}
+
 .signature{
     font-style: italic;
     font-size: 0.9rem;
@@ -123,5 +186,50 @@
     margin: 0 5px;
     border-radius: 50%;
     font-weight: bolder;
+    color: black;
     background-color: khaki;
+}
+
+nav{
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    p,a{
+        margin: 5px;
+    }
+    a{
+        font-weight: bolder;
+        color: blue;
+    }
+}
+
+.table_stylé{
+    max-width: 100%;
+    display: flex;
+    justify-content:stretch;
+    align-items: center;
+    table{
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        border-collapse: collapse;
+        th, td{
+            border: 1px black solid;
+            margin: 0;
+            padding: 3px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+    }
+}
+
+.bloc-colonne{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
 }

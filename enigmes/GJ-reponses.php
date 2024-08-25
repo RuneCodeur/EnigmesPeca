@@ -7,6 +7,7 @@ $affichageConnexion = 'flex';
 $affichageEquipe = 'none';
 $classResultat = 'resultat-red';                // par defaut, affiche le message en rouge
 $equipes = [];
+$nomEpreuve = 'reponses';
 
 //logique
 
@@ -17,8 +18,7 @@ if(isset($_SESSION['admin-pseudo']) && isset($_SESSION['admin-pseudo'])){
 }
 
 if(isset($_POST['pseudo']) && isset($_POST['password'])){
-    $json = file_get_contents($fichierUsers);                   // récupère les utilisateurs
-    $Users = json_decode($json, true);                          // converti le contenue en un format utilisable
+    $Users = GETfichier($fichierUsers);
     $resultat = 'nom ou mot de passe invalide';
     if(isset($Users[$_POST['pseudo']])){
         if($Users[$_POST['pseudo']] == $_POST['password']){
@@ -33,33 +33,17 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
 
 
 // affichage des equipes
-$json = file_get_contents($fichierTeam);
-$equipes = json_decode($json, true);
+$equipes = GETfichier($fichierTeam);
 
 //enlève 1 point à l'equipe
 if(isset($_GET['down'])){
     $equipes[$_GET['down']]['score'] = $equipes[$_GET['down']]['score']-1;
-    $json = json_encode($equipes, JSON_PRETTY_PRINT);
-    file_put_contents($fichierTeam, $json);
+    UPDATEfichier($fichierTeam, $equipes);
 }
 
 if(isset($_GET['up'])){
     $equipes[$_GET['up']]['score'] = $equipes[$_GET['up']]['score']+1;
-    $json = json_encode($equipes, JSON_PRETTY_PRINT);
-    file_put_contents($fichierTeam, $json);
-}
-
-// suppression de l'equipe
-if(isset($_GET['del'])){
-    if (array_key_exists($_GET['del'], $equipes)) {
-        unset($equipes[$_GET['del']]);
-        $json = json_encode($equipes, JSON_PRETTY_PRINT);
-        file_put_contents($fichierTeam, $json);
-        $classResultat = 'resultat-green';
-        $resultat = 'Equipe "'.$_GET['del'].'" suprimé !';
-    }else{
-        $resultat = 'Equipe "'.$_GET['del'].'" inconnu.';
-    }
+    UPDATEfichier($fichierTeam, $equipes);
 }
 
 //affichage
@@ -71,27 +55,40 @@ if(isset($_GET['del'])){
     <?= $resultat ?>
 </p>
 
-<form style="display:<?=$affichageConnexion?>" class="formulaire_stylé" action="<?=lienEnigme("GJ-admin")?>" method="POST">
+<form style="display:<?=$affichageConnexion?>" class="formulaire_stylé" action="<?=lienEnigme("GJ-".$nomEpreuve)?>" method="POST">
     <p>connexion</p>
     <input class="bout_stylé" type="text" id="pseudo" name="pseudo" placeholder="nom du compte" required>
     <input class="bout_stylé" type="password" id="password" name="password" placeholder="mot de passe" required>
     <input class="bout_action_stylé" type="submit">
 </form>
 
-<ul style="display:<?=$affichageEquipe?>; min-width:190px;" class="liste-simple">
-    <?php
-    foreach ($equipes as $nom => $value) {
-        ?>
-        <li>
-            <p><?=$nom?> : </p>
-            <b>
-                <form action="<?=lienEnigme("GJ-admin")?>&down=<?=$nom?>" method="POST"><input class="ball" type="submit" value = "-"></form>
-                <?=$value['score']?>
-                <form action="<?=lienEnigme("GJ-admin")?>&up=<?=$nom?>" method="POST"><input class="ball" type="submit" value = "+"></form>
-            </b>
-            <form action="<?=lienEnigme("GJ-admin")?>&del=<?=$nom?>" method="POST"><input type="submit" value = "supprimer"></form>
-        </li>
-        <?php
-    }
-    ?>
+<ul style="display:<?=$affichageEquipe?>; min-width:190px;" class="liste-colonne">
+    
+    <li>
+        <h2>météo</h2>
+        <p><b>question facile :</b> Azote</p>
+        <p><b>question moyenne :</b> La grêle</p>
+        <p><b>question difficile :</b> 8</p>
+    </li>
+    
+    <li>
+        <h2>géologie</h2>
+        <p><b>question facile :</b> diamant</p>
+        <p><b>question moyenne :</b> image 2</p>
+        <p><b>question difficile :</b> Restes préservées d'organismes anciens</p>
+    </li>
+    
+    <li>
+        <h2>chimie</h2>
+        <p><b>question facile :</b> h2o</p>
+        <p><b>question moyenne :</b> Hydrogène</p>
+        <p><b>question difficile :</b> 24</p>
+    </li>
+
+    <li>
+        <h2>feu</h2>
+        <p><b>question facile :</b> 100</p>
+        <p><b>question moyenne :</b> oxygène</p>
+        <p><b>question difficile :</b> Laine minérale</p>
+    </li>
 </ul>

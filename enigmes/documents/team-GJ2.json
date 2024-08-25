@@ -1,0 +1,21 @@
+{
+    "equipe-violette": {
+        "score": 0,
+        "liste": {
+            "2": "9",
+            "1": "10",
+            "6": "4"
+        }
+    },
+    "equipe-bleu": {
+        "score": 0,
+        "liste": {
+            "1": "10",
+            "3": "4"
+        }
+    },
+    "equipe-rouge": {
+        "score": 0,
+        "liste": []
+    }
+}

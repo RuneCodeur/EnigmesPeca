@@ -15,8 +15,7 @@ if($action == '1'){
 }
 
 elseif($action == '2'){
-    $json = json_encode([], JSON_PRETTY_PRINT);
-    file_put_contents($fichier, $json);
+    UPDATEfichier($fichier, []);
     $message = 'fichier "stat.json" vidé !';
 }
 

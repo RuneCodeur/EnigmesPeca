@@ -4,6 +4,7 @@
     list-style-type: none;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    color: black;
 }
 
 body{
@@ -34,4 +35,8 @@ img{
     object-fit: contain;
     width: 100%;
     max-width: 450px;
+}
+
+input{
+    width: 100%;
 }

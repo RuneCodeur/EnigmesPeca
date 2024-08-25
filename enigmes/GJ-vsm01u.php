@@ -4,26 +4,24 @@ $fichierTeam = './enigmes/documents/team.json';
 $resultat = '';
 $classResultat = 'resultat-red'; 
 $afficheFormulaire = true;
-$nomEpreuve = 'vsm03u';
+$nomEpreuve = 'vsm01u';
 
 // logique
-testTeam();
-$json = file_get_contents($fichierTeam);
-$teams = json_decode($json, true);
+testTeam($fichierTeam, "GJ-intro");
+$equipes = GETfichier($fichierTeam);
 
 
 // si l'equipe à déja proposé une réponse
-if((isset($_POST['reponse']) && $_POST['reponse'] != '') || isset($teams[$_SESSION['equipe']]['liste'][$nomEpreuve])){
-    if(isset($teams[$_SESSION['equipe']]['liste'][$nomEpreuve]) || (strtolower($_POST['reponse']) == "baleine bleue" || strtolower($_POST['reponse']) == "la baleine bleue") ){
+if((isset($_POST['reponse']) && $_POST['reponse'] != '') || isset($equipes[$_SESSION['equipe']]['liste'][$nomEpreuve])){
+    if(isset($equipes[$_SESSION['equipe']]['liste'][$nomEpreuve]) || (strtolower(trim($_POST['reponse'])) == "baleine bleue" || strtolower(trim($_POST['reponse'])) == "la baleine bleue") ){
 
         // bonne réponse
         $resultat = 'Bonne réponse ! Votre équipe gagne 1 point !';
         $classResultat = 'resultat-green';
-        if(!isset($teams[$_SESSION['equipe']]['liste'][$nomEpreuve]['win'])){
-            $teams[$_SESSION['equipe']]['liste'][$nomEpreuve]['win'] = 1;
-            $teams[$_SESSION['equipe']]['score'] = $teams[$_SESSION['equipe']]['score']+1;
-            $json = json_encode($teams, JSON_PRETTY_PRINT);
-            file_put_contents($fichierTeam, $json);
+        if(!isset($equipes[$_SESSION['equipe']]['liste'][$nomEpreuve]['win'])){
+            $equipes[$_SESSION['equipe']]['liste'][$nomEpreuve]['win'] = 1;
+            $equipes[$_SESSION['equipe']]['score'] = $equipes[$_SESSION['equipe']]['score']+1;
+            UPDATEfichier($fichierTeam, $equipes);
         }
         $afficheFormulaire = false;
     }
@@ -37,7 +35,7 @@ if((isset($_POST['reponse']) && $_POST['reponse'] != '') || isset($teams[$_SESSI
 // affichage
 ?>
 
-<h1>Question facile</h1>
+<h1>Un gros poisson</h1>
 
 <p class="signature"> <?= $_SESSION['equipe'] ?></p>
 

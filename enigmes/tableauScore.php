@@ -5,8 +5,7 @@ $fichier = './enigmes/documents/stat.json';     // nom du fichier utilisé pour 
 $equipes = [];                                  // liste utilisé pour afficher les equipes
 
 //logique
-$json = file_get_contents($fichier);            // récupère le contenue du fichier 
-$equipes = json_decode($json, true);            // converti le contenue en un format utilisable
+$equipes = GETfichier($fichier);
 
 //affichage
 ?>

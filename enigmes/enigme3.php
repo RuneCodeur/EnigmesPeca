@@ -11,7 +11,7 @@ if(isset($_POST['reponse']) && $_POST['reponse'] !='' && !isset($_SESSION['respo
 
 if(isset($_SESSION['responseA'])){                                                          // si il y a la valeur "reponse" dans la session du joueur...
     $afficheFormulaire = false;                                                             // masque le formulaire
-    if(strtolower($_SESSION['responseA']) == "blanc" ){            // si la reponse est correcte
+    if(strtolower($_SESSION['responseA']) == "blanc" ){                                     // si la reponse est correcte
         $resultat = 'gagné ! tu as droit à un indice : Cornemuse';                          // affiche le message de reussite
         $classResultat = 'resultat-green';                                                  // affiche la réponse en vert
     }
@@ -22,8 +22,7 @@ if(isset($_SESSION['responseA'])){                                              
 
 //affichage
 ?>
-
-<h1>enigme 3</h1>
+<h1>Enigme 3</h1>
 <p class="signature">par Henry JEAN-FURET</p>
 
 <p class="texte_alerte">ATTENTION : vous avez droit qu'a 1 seule tentative.</p>

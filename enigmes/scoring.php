@@ -4,11 +4,10 @@ $fichier = './enigmes/documents/stat.json';     // nom du fichier utilisé pour 
 $resultat = '';
 //logique
 if(isset($_POST['nom']) && isset($_POST['score'])){     // si il y a un score ET un nom à enregistrer
-    $json = file_get_contents($fichier);                // récupère le contenue du fichier 
-    $stat = json_decode($json, true);                   // converti le contenue en un format utilisable
+    
+    $stat = GETfichier($fichier);
     $stat[$_POST['nom']] = $_POST['score'];             // insère le score à rajouter avec un nom d'equipe (si le nom de l'equipe est déja utilisé, remplace son score) 
-    $json = json_encode($stat, JSON_PRETTY_PRINT);      // reconverti le contenue en un format utilisable par le fichier
-    file_put_contents($fichier, $json);                 // met à jour le fichier utilisé
+    UPDATEfichier($fichier, $stat);
     $resultat = 'score de "' . $_POST['nom'] . '" mis à jour !';
 }
 

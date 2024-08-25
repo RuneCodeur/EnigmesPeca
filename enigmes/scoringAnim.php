@@ -11,8 +11,7 @@ $classResultat = 'resultat-red';                // par defaut, affiche le messag
 
 //validation de la connexion
 if(isset($_POST['pseudo']) && isset($_POST['password'])){
-    $json = file_get_contents($listeUsers);                // récupère les utilisateurs
-    $Users = json_decode($json, true);                   // converti le contenue en un format utilisable
+    $Users = GETfichier($listeUsers);
     $resultat = 'nom ou mot de passe invalide';
     if(isset($Users[$_POST['pseudo']])){
         if($Users[$_POST['pseudo']] == $_POST['password']){
@@ -28,11 +27,9 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
 
 // inscription
 if(isset($_POST['nom']) && isset($_POST['score'])){     // si il y a un score ET un nom à enregistrer
-    $json = file_get_contents($fichier);                // récupère le contenue du fichier 
-    $stat = json_decode($json, true);                   // converti le contenue en un format utilisable
+    $stat = GETfichier($fichier);
     $stat[$_POST['nom']] = $_POST['score'];             // insère le score à rajouter avec un nom d'equipe (si le nom de l'equipe est déja utilisé, remplace son score) 
-    $json = json_encode($stat, JSON_PRETTY_PRINT);      // reconverti le contenue en un format utilisable par le fichier
-    file_put_contents($fichier, $json);                 // met à jour le fichier utilisé
+    UPDATEfichier($fichier, $stat);
     $resultat = 'score de "' . $_POST['nom'] . '" mis à jour !';
 }
 

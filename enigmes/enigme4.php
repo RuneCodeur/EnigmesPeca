@@ -36,7 +36,7 @@ if(isset($_SESSION['responseB']) && $_SESSION['responseB'] != ''){              
 //affichage
 ?>
 
-<h1>enigme 4</h1>
+<h1>Enigme 4</h1>
 <p class="signature">par Henry JEAN-FURET</p>
 
 <p class="texte_alerte">ATTENTION : vous avez droit à <?=$_SESSION['comptageB']?> tentatives.</p>

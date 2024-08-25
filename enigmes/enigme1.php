@@ -16,7 +16,7 @@ if(isset($_POST['reponse']) && $_POST['reponse'] !=''){                         
 
 //affichage
 ?>
-<h1>enigme 1</h1>
+<h1>Enigme 1</h1>
 <p class="signature">par Henry JEAN-FURET</p>
 
 <p class="texte_stylé">Qu'es-ce qui est petit et marron ?</p>

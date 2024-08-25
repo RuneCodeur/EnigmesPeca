@@ -1,11 +1,19 @@
 {
-    "equipe-bleu": {
-        "score": 0,
+    "equipe-violette": {
+        "score": 2,
         "liste": {
+            "fe034": {
+                "response": "2",
+                "comptage": 0
+            },
+            "fe01j": {
+                "win": 1
+            },
+            "me01a": {
+                "response": "3",
+                "comptage": 0,
+                "win": 1
+            }
         }
-    },
-    "equipe-rouge": {
-        "score": 0,
-        "liste": []
     }
 }

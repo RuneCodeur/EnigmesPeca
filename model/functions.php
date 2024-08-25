@@ -23,7 +23,7 @@ function lienEnigme($nom = ""){
     return $lien;
 }
 
-function testTeam(){
+function testTeam($fichierTeam, $retour){
     
     if(isset($_SESSION['admin-pseudo']) && isset($_SESSION['admin-password'])){
         $_SESSION['admin-pseudo'] = null;
@@ -31,16 +31,24 @@ function testTeam(){
     }
 
     if(!isset($_SESSION['equipe'])){
-        header('Location: '.lienEnigme("GJ-intro"));
+        header('Location: '.lienEnigme($retour));
         die;
     }
     
-    $fichierTeam = './enigmes/documents/team.json'; 
-    $json = file_get_contents($fichierTeam);
-    $equipes = json_decode($json, true);
+    $equipes = GETfichier($fichierTeam);
     if (!array_key_exists($_SESSION['equipe'], $equipes)) {
         session_destroy();
-        header('Location: '.lienEnigme("GJ-intro"));
+        header('Location: '.lienEnigme($retour));
         die;
     }
+}
+
+function GETfichier($fichier){
+    $json = file_get_contents($fichier);
+    return json_decode($json, true);
+}
+
+function UPDATEfichier($fichier, $info){
+    $json = json_encode($info, JSON_PRETTY_PRINT);
+    file_put_contents($fichier, $json);
 }
