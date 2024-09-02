@@ -7,6 +7,7 @@ $affichageConnexion = 'flex';
 $affichageEquipe = 'none';
 $classResultat = 'resultat-red';                // par defaut, affiche le message en rouge
 $equipes = [];
+$nomEpreuve = "GJ-equipes";
 
 //logique
 
@@ -37,7 +38,7 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
     if(isset($_GET['down'])){
         $equipes[$_GET['down']]['score'] = $equipes[$_GET['down']]['score']-1;
         UPDATEfichier($fichierTeam, $equipes);
-        header('Location: '.lienEnigme("GJ-equipes"));
+        header('Location: '.lienEnigme($nomEpreuve));
         die;
     }
 
@@ -45,7 +46,7 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
     if(isset($_GET['up'])){
         $equipes[$_GET['up']]['score'] = $equipes[$_GET['up']]['score']+1;
         UPDATEfichier($fichierTeam, $equipes);
-        header('Location: '.lienEnigme("GJ-equipes"));
+        header('Location: '.lienEnigme($nomEpreuve));
         die;
     }
 
@@ -69,9 +70,9 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
         <li>
             <p><?=$nom?> : </p>
             <b>
-                <form style="display:<?=$affichageEquipe?>;" action="<?=lienEnigme("GJ-equipes")?>&down=<?=$nom?>" method="POST"><input class="ball" type="submit" value = "-"></form>
+                <form style="display:<?=$affichageEquipe?>;" action="<?=lienEnigme($nomEpreuve)?>&down=<?=$nom?>" method="POST"><input class="ball" type="submit" value = "-"></form>
                 <?=$value['score']?>
-                <form style="display:<?=$affichageEquipe?>;" action="<?=lienEnigme("GJ-equipes")?>&up=<?=$nom?>" method="POST"><input class="ball" type="submit" value = "+"></form>
+                <form style="display:<?=$affichageEquipe?>;" action="<?=lienEnigme($nomEpreuve)?>&up=<?=$nom?>" method="POST"><input class="ball" type="submit" value = "+"></form>
             </b>
         </li>
         <?php
@@ -80,7 +81,7 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
 </ul>
 <br>
 <br>
-<form style="display:<?=$affichageConnexion?>" class="formulaire_stylé" action="<?=lienEnigme("GJ-equipes")?>" method="POST">
+<form style="display:<?=$affichageConnexion?>" class="formulaire_stylé" action="<?=lienEnigme($nomEpreuve)?>" method="POST">
     <p>connexion admin</p>
     <input class="bout_stylé" type="text" id="pseudo" name="pseudo" placeholder="nom du compte" required>
     <input class="bout_stylé" type="password" id="password" name="password" placeholder="mot de passe" required>

@@ -7,7 +7,7 @@ $affichageConnexion = 'flex';
 $affichageEquipe = 'none';
 $classResultat = 'resultat-red';                // par defaut, affiche le message en rouge
 $equipes = [];
-$nomEpreuve = 'reponses';
+$nomEpreuve = 'GJ-reponses';
 
 //logique
 
@@ -55,7 +55,7 @@ if(isset($_GET['up'])){
     <?= $resultat ?>
 </p>
 
-<form style="display:<?=$affichageConnexion?>" class="formulaire_stylé" action="<?=lienEnigme("GJ-".$nomEpreuve)?>" method="POST">
+<form style="display:<?=$affichageConnexion?>" class="formulaire_stylé" action="<?=lienEnigme($nomEpreuve)?>" method="POST">
     <p>connexion</p>
     <input class="bout_stylé" type="text" id="pseudo" name="pseudo" placeholder="nom du compte" required>
     <input class="bout_stylé" type="password" id="password" name="password" placeholder="mot de passe" required>

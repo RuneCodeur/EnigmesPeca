@@ -5,6 +5,7 @@ $resultat = '';
 $affichageConnexion = 'flex';
 $affichageEquipe = 'none';
 $equipes = [];
+$nomEpreuve = "GJ-DL";
 
 //logique
 
@@ -37,7 +38,7 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
 <h1>QR-codes</h1>
 
 
-<form style="display:<?=$affichageConnexion?>" class="formulaire_stylé" action="<?=lienEnigme("GJ-DL")?>" method="POST">
+<form style="display:<?=$affichageConnexion?>" class="formulaire_stylé" action="<?=lienEnigme($nomEpreuve)?>" method="POST">
     <p>connexion</p>
     <input class="bout_stylé" type="text" id="pseudo" name="pseudo" placeholder="nom du compte" required>
     <input class="bout_stylé" type="password" id="password" name="password" placeholder="mot de passe" required>

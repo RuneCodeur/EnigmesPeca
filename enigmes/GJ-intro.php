@@ -4,6 +4,7 @@ $fichierTeam = './enigmes/documents/team.json';
 $resultat = '';
 $classResultat = 'resultat-red'; 
 $afficheFormulaire = true;
+$nomEpreuve = "GJ-intro";
 
 $equipes = GETfichier($fichierTeam);
 
@@ -11,7 +12,7 @@ $equipes = GETfichier($fichierTeam);
 
 if(isset($_GET['quit'])){
     session_destroy();
-    header('Location: '.lienEnigme("GJ-intro"));
+    header('Location: '.lienEnigme($nomEpreuve));
     die;
 }
 
@@ -49,7 +50,7 @@ if($afficheFormulaire){
 
     <p> Avant de jouer, choisissez votre équipe !</p>
 
-    <form class="formulaire_stylé" action="<?=lienEnigme("GJ-intro")?>" method="POST">
+    <form class="formulaire_stylé" action="<?=lienEnigme($nomEpreuve)?>" method="POST">
         
         <select name="selectEquip">
         <?php
@@ -67,7 +68,7 @@ if($afficheFormulaire){
     <?php 
     }else{
         ?>
-    <form class="formulaire_stylé" action="<?=lienEnigme("GJ-intro")?>&quit" method="POST">
+    <form class="formulaire_stylé" action="<?=lienEnigme($nomEpreuve)?>&quit" method="POST">
         <input class="bout_action_stylé" type="submit" value="Quitter l'équipe">
     </form>
 

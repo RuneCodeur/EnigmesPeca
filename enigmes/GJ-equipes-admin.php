@@ -7,6 +7,7 @@ $affichageConnexion = 'flex';
 $affichageEquipe = 'none';
 $classResultat = 'resultat-red';                // par defaut, affiche le message en rouge
 $equipes = [];
+$nomEpreuve = "GJ-equipes-admin";
 
 //logique
 
@@ -37,14 +38,14 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
     if(isset($_GET['down'])){
         $equipes[$_GET['down']]['score'] = $equipes[$_GET['down']]['score']-1;
         UPDATEfichier($fichierTeam, $equipes);
-        header('Location: '.lienEnigme("GJ-equipes-admin"));
+        header('Location: '.lienEnigme($nomEpreuve));
         die;
     }
 
     if(isset($_GET['up'])){
         $equipes[$_GET['up']]['score'] = $equipes[$_GET['up']]['score']+1;
         UPDATEfichier($fichierTeam, $equipes);
-        header('Location: '.lienEnigme("GJ-equipes-admin"));
+        header('Location: '.lienEnigme($nomEpreuve));
         die;
     }
 
@@ -54,7 +55,7 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
             unset($equipes[$_GET['del']]);
             UPDATEfichier($fichierTeam, $equipes);
             $classResultat = 'resultat-green';
-            header('Location: '.lienEnigme("GJ-equipes-admin"));
+            header('Location: '.lienEnigme($nomEpreuve));
             die;
         }else{
             $resultat = 'Equipe "'.$_GET['del'].'" inconnu.';
@@ -93,7 +94,7 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
     <?= $resultat ?>
 </p>
 
-<form style="display:<?=$affichageConnexion?>" class="formulaire_stylé" action="<?=lienEnigme("GJ-equipes-admin")?>" method="POST">
+<form style="display:<?=$affichageConnexion?>" class="formulaire_stylé" action="<?=lienEnigme($nomEpreuve)?>" method="POST">
     <p>connexion</p>
     <input class="bout_stylé" type="text" id="pseudo" name="pseudo" placeholder="nom du compte" required>
     <input class="bout_stylé" type="password" id="password" name="password" placeholder="mot de passe" required>
@@ -107,18 +108,18 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
         <li>
             <p><?=$nom?> : </p>
             <b>
-                <form action="<?=lienEnigme("GJ-equipes-admin")?>&down=<?=$nom?>" method="POST"><input class="ball" type="submit" value = "-"></form>
+                <form action="<?=lienEnigme($nomEpreuve)?>&down=<?=$nom?>" method="POST"><input class="ball" type="submit" value = "-"></form>
                 <?=$value['score']?>
-                <form action="<?=lienEnigme("GJ-equipes-admin")?>&up=<?=$nom?>" method="POST"><input class="ball" type="submit" value = "+"></form>
+                <form action="<?=lienEnigme($nomEpreuve)?>&up=<?=$nom?>" method="POST"><input class="ball" type="submit" value = "+"></form>
             </b>
-            <form action="<?=lienEnigme("GJ-equipes-admin")?>&del=<?=$nom?>" method="POST"><input type="submit" value = "supprimer"></form>
+            <form action="<?=lienEnigme($nomEpreuve)?>&del=<?=$nom?>" method="POST"><input type="submit" value = "supprimer"></form>
         </li>
         <?php
     }
     ?>
 </ul>
 
-<form style="display:<?=$affichageEquipe?>; min-width:190px;" class="formulaire_stylé" action="<?=lienEnigme("GJ-equipes-admin")?>" method="POST">
+<form style="display:<?=$affichageEquipe?>; min-width:190px;" class="formulaire_stylé" action="<?=lienEnigme($nomEpreuve)?>" method="POST">
     <input class="bout_stylé" type="text" name="newEquip" placeholder="nom d'équipe" required>
     <input class="bout_action_stylé" type="submit" value="création">
 </form>

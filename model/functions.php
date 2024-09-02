@@ -52,3 +52,7 @@ function UPDATEfichier($fichier, $info){
     $json = json_encode($info, JSON_PRETTY_PRINT);
     file_put_contents($fichier, $json);
 }
+
+function GETqrcode($url, $name){
+    return "./model/imageQRCODE.php?url=" . urlencode($url) . "&name=" . $name;
+}

@@ -1,16 +1,4 @@
 <?php
-/*
-PROCESS
-
-meteo               ok
-geologie            ok
-chimie              ok
-le feu              3
-physique            3
-
-planetes            10
-
-*/
 
 
 ini_set('session.gc_maxlifetime', 60*60*5);
@@ -55,7 +43,7 @@ elseif($GETcode != ''){
 
 
 //affichage de la liste des enigmes (admin)
-elseif($GETadmin == 'jaimeleschats'){
+elseif($GETadmin == 'xv25tr8'){
     if($GETparam == '1'){
         require_once('./structure/parametres.php');
 

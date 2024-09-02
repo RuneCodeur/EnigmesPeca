@@ -4,7 +4,7 @@ $fichierTeam = './enigmes/documents/team.json';
 $resultat = '';
 $classResultat = 'resultat-red'; 
 $afficheFormulaire = true;
-$nomEpreuve = 'geo01p';
+$nomEpreuve = 'GJ-geo01p';
 
 // logique
 testTeam($fichierTeam, "GJ-intro");
@@ -51,7 +51,7 @@ if((isset($_POST['response']) && $_POST['response'] != '') || isset($equipes[$_S
 if($afficheFormulaire){
     ?>
 
-    <form class="formulaire_stylé"  action="<?=lienEnigme("GJ-".$nomEpreuve)?>" method="POST">
+    <form class="formulaire_stylé"  action="<?=lienEnigme($nomEpreuve)?>" method="POST">
         <input class="bout_stylé" type="text" id="response" name="response" placeholder="ma réponse" required>
         <input class="bout_action_stylé" type="submit">
     </form>

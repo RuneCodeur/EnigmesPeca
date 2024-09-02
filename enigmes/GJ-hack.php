@@ -4,7 +4,7 @@ $fichierTeam = './enigmes/documents/team.json';
 $resultat = '';
 $classResultat = 'resultat-red'; 
 $afficheFormulaire = true;
-$nomEpreuve = 'hack';
+$nomEpreuve = 'GJ-hack';
 
 // logique
 testTeam($fichierTeam, "GJ-intro");

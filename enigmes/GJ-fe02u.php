@@ -4,7 +4,7 @@ $fichierTeam = './enigmes/documents/team.json';
 $resultat = '';
 $classResultat = 'resultat-red'; 
 $afficheFormulaire = true;
-$nomEpreuve = 'fe02u';
+$nomEpreuve = 'GJ-fe02u';
 
 
 // logique
@@ -81,7 +81,7 @@ if(isset($equipes[$_SESSION['equipe']]['liste'][$nomEpreuve]['response']) && $eq
 if($afficheFormulaire){
     ?>
 
-    <form class="formulaire_stylé"  action="<?=lienEnigme("GJ-".$nomEpreuve)?>" method="POST">
+    <form class="formulaire_stylé"  action="<?=lienEnigme($nomEpreuve)?>" method="POST">
         <input type="text" name="response" placeholder="ma réponse" required>
         <input class="bout_action_stylé" type="submit">
     </form>
